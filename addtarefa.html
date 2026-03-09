@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de tarefas</title>
+</head>
+<body>
+    <h2>Lista de tarefas</h2>
+    <ul id="listas"></ul>
+
+    <div>
+        <label for="tarefa">Escreva uma tarefa</label>
+        <input type="text" id="tarefa">
+        <button onclick="adicionar()">adicionar</button>
+    </div>
+
+    <script>
+        const l_tarefa = document.getElementById("listas")
+
+
+
+    function adicionar(){
+        l_tarefa.insertAdjacentHTML("beforeend", `<li>${tarefa.value}</li>`);
+        tarefa.value = "";
+    }
+
+    </script>
+    
+</body>
+</html>

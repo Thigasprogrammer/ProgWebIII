@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>1. maior ou menor de idade</h2>
+        <form id = "formidade">
+        <div>
+            <label for="idade">Digite sua idade: </label>
+            <input type = "number" id="idade" name="idade">
+            <button type = "submit" id="enviar">Enviar</button>
+        </div>
+    </form>
+    <script>
+    document.getElementById("formidade").onsubmit = function(){
+        var valor = document.getElementById("idade");
+        var num = parseInt(valor.value)
+        if (num >= 18){
+            alert("Você é maior de idade");
+        }
+        else{
+            alert("Você é menor de idade");
+        }
+    }
+    </script>
+    <h2>2. login fake</h2>
+        <form id="forms">
+        <div>
+            <label for="usuario">Digite o nome de usuário</label>
+            <input type="text" id="usuario">
+        </div>
+
+        <div>
+            <label for="senha">Digite a senha</label>
+            <input type="password" id="senha">
+        </div>
+        <div><button type="submit" id="entrar" onclick="verify()">Entrar</button></div>
+    </form>
+    
+
+    <script>
+    
+    function verify (){
+        if (document.getElementById("usuario").value === "" || document.getElementById("senha").value === ""){
+            alert("ERRO! os campos estão vazios, digite novamente");
+        }
+        else{
+            alert("Sucesso");
+        }
+    }
+    </script>
+    <h2>3. contar caracteres</h2>
+        <textarea id="texto" rows="4" cols="50" maxlength="100"></textarea>
+    <p><span id="contador">0</span></p>
+
+    <script>
+        const texto = document.getElementById('texto');
+        const contador = document.getElementById('contador');
+
+        texto.addEventListener('input', () => {
+            const caracteresDigitados = texto.value.length;
+            contador.innerText = caracteresDigitados;
+        })
+    </script>
+
+    <h2>4. Calculadora</h2>
+        <div>
+        <input type="text" id="caixa" readonly>
+        <div>
+            <button onclick="colocartexto('/')">/</button>
+            <button onclick="colocartexto('*')">*</button>
+            <button onclick="colocartexto('+')">+</button>
+            <button onclick="colocartexto('-')">-</button>
+        </div>
+            <div>
+            <button onclick="colocartexto('7')">7</button>
+            <button onclick="colocartexto('8')">8</button>
+            <button onclick="colocartexto('9')">9</button>
+            <button onclick="limpar()">C</button>
+        </div>
+        <div>
+            <button onclick="colocartexto('4')">4</button>
+            <button onclick="colocartexto('5')">5</button>
+            <button onclick="colocartexto('6')">6</button>
+        </div>            
+        <div>
+            <button onclick="colocartexto('1')">1</button>
+            <button onclick="colocartexto('2')">2</button>
+            <button onclick="colocartexto('3')">3</button>
+        </div>
+        <div>
+            <button onclick="deletar()">D</button>
+            <button onclick="colocartexto('0')">0</button>
+            <button onclick="calcular()">=</button>
+        </div>
+    </div>
+    <script>
+        function colocartexto(input){
+            caixa.value += input;
+        }
+
+        function limpar(){
+            caixa.value = "";
+        }
+
+        function deletar(){
+            caixa.value = caixa.value.slice(0, -1);
+        }
+
+        function calcular(){
+            caixa.value = eval(caixa.value);
+        }
+    </script>
+
+    <h2>5. Lista de tarefas (não terminado)</h2>
+    <ul id="listas"></ul>
+
+    <div>
+        <label for="tarefa">Escreva uma tarefa</label>
+        <input type="text" id="tarefa">
+        <button onclick="adicionar()">adicionar</button>
+    </div>
+
+    <script>
+        const l_tarefa = document.getElementById("listas")
+
+    function adicionar(){
+        l_tarefa.insertAdjacentHTML("beforeend", `<li id="tar">${tarefa.value} <button onclick="excluir()"> excluir </button></li>`);
+        tarefa.value = "";
+    }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="caixa" readonly>
+        <div>
+            <button onclick="colocartexto('/')">/</button>
+            <button onclick="colocartexto('*')">*</button>
+            <button onclick="colocartexto('+')">+</button>
+            <button onclick="colocartexto('-')">-</button>
+        </div>
+            <div>
+            <button onclick="colocartexto('7')">7</button>
+            <button onclick="colocartexto('8')">8</button>
+            <button onclick="colocartexto('9')">9</button>
+            <button onclick="limpar()">C</button>
+        </div>
+        <div>
+            <button onclick="colocartexto('4')">4</button>
+            <button onclick="colocartexto('5')">5</button>
+            <button onclick="colocartexto('6')">6</button>
+        </div>            
+        <div>
+            <button onclick="colocartexto('1')">1</button>
+            <button onclick="colocartexto('2')">2</button>
+            <button onclick="colocartexto('3')">3</button>
+        </div>
+        <div>
+            <button onclick="deletar()">D</button>
+            <button onclick="colocartexto('0')">0</button>
+            <button onclick="calcular()">=</button>
+        </div>
+    </div>
+    <script>
+        function colocartexto(input){
+            caixa.value += input;
+        }
+
+        function limpar(){
+            caixa.value = "";
+        }
+
+        function deletar(){
+            caixa.value = caixa.value.slice(0, -1);
+        }
+
+        function calcular(){
+            caixa.value = eval(caixa.value);
+        }
+    </script>
+    
+</body>
+</html>
