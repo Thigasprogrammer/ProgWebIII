@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="forms">
+        <label for="nome">Digite o nome</label>
+        <div>
+            <input type="text" id="nome">
+        </div>
+
+        <label for="end">Digite o endereço</label>
+        <div>
+            <input type="text" id="end">
+        </div>
+
+        <label for="tel">Digite o telefone</label>
+        <div>
+            <input type="text" id="tel">
+        </div>
+
+        <label for="email">Digite o email</label>
+        <div>
+            <input type="text" id="email">
+        </div>
+
+        <div>
+            <input type="button" id="inclui" onclick="incluir()" value="Incluir">
+            <input type="button" id="limpa" onclick="limpar()" value="Limpar Campos">
+        </div>
+    </form>
+    <div id="saida"></div>
+    <!-- <h1></h1>
+    <table id="campos">
+        <tr>
+            <th>Nome</th>
+            <th>Endereço</th>
+            <th>Telefone</th>
+            <th>Email</th>
+        </tr>
+    </table> -->
+    <Script>
+        vetor = new Array();
+        campos = document.getElementById("campos");
+
+        function cadastro(nome, end, tel, email) { // Constructor 
+            this.nome = nome;
+            this.end = end;
+            this.tel = tel;
+            this.email = email;
+        }
+
+        function listar() {
+            let aux = ""
+            for (x in vetor) {
+                aux += vetor[x].nome + " " + vetor[x].end + " " + vetor[x].tel + " " + vetor[x].email + "<br>";
+
+            }
+            document.getElementById("saida").innerHTML = aux;
+        }
+
+            
+
+/*
+            <tr><td>${vetor[vetor.length - 1].nome}</td>
+            <td>${vetor[vetor.length - 1].end}</td>
+            <td>${vetor[vetor.length - 1].tel}</td>
+            <td>${vetor[vetor.length - 1].email}</td>
+            <td><button onclick="alterar(${vetor.length - 1})">Alterar</button></td></tr>`);
+        }
+        */
+
+        function incluir() {
+            vetor.push(new cadastro(document.getElementById('nome').value, document.getElementById('end').value, document.getElementById('tel').value, document.getElementById('email').value));
+        }
+        
+        function limpar() {
+            document.getElementById("forms").reset();
+        }
+
+        function excluir() {
+            
+        }
+
+        function alterar(indice) {
+            document.getElementById("inclui").value = "Alterar";
+            document.getElementById('nome').value = vetor[indice].nome;
+            document.getElementById('end').value = vetor[indice].end;
+            document.getElementById('tel').value = vetor[indice].tel;
+            document.getElementById('email').value = vetor[indice].email;
+
+        }
+
+
+    </Script>
+
+    
+</body>
+</html>
